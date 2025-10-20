@@ -5,7 +5,7 @@
  * Use of this software requires acceptance of the Evaluation License Agreement. See LICENSE file.
  */
 
-namespace SprykerShopTest\Yves\ErrorPage\ExceptionHandler;
+namespace SprykerShopTest\Yves\ErrorPage\Handler;
 
 use Codeception\Test\Unit;
 use Exception;
