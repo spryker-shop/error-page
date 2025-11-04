@@ -21,7 +21,7 @@ class Error429Controller extends AbstractController
     /**
      * @var string
      */
-    protected const REQUEST_PARAM_EXCEPTION = 'exception';
+    protected const REQUEST_ATTRIBUTE_EXCEPTION = 'exception';
 
     /**
      * @param \Symfony\Component\HttpFoundation\Request $request
@@ -44,7 +44,7 @@ class Error429Controller extends AbstractController
     protected function getErrorMessage(Request $request): string
     {
         /** @var \Symfony\Component\ErrorHandler\Exception\FlattenException|null $exception */
-        $exception = $request->query->all()[static::REQUEST_PARAM_EXCEPTION] ?? null;
+        $exception = $request->attributes->get(static::REQUEST_ATTRIBUTE_EXCEPTION);
 
         if ($exception instanceof FlattenException) {
             return $exception->getMessage();

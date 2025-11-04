@@ -32,6 +32,11 @@ class SubRequestExceptionHandlerPlugin extends AbstractPlugin implements Excepti
     /**
      * @var string
      */
+    protected const REQUEST_ATTRIBUTE_EXCEPTION = 'exception';
+
+    /**
+     * @var string
+     */
     public const URL_NAME_PREFIX = 'error/';
 
     /**
@@ -88,11 +93,10 @@ class SubRequestExceptionHandlerPlugin extends AbstractPlugin implements Excepti
         $subRequest = Request::create(
             $errorPageUrl,
             Request::METHOD_GET,
-            [
-                'exception' => $exception,
-            ],
+            [],
             $cookies,
         );
+        $subRequest->attributes->set(static::REQUEST_ATTRIBUTE_EXCEPTION, $exception);
 
         if ($request->hasSession()) {
             $subRequest->setSession($request->getSession());
