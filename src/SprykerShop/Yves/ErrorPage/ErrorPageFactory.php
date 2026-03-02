@@ -19,25 +19,16 @@ use Symfony\Component\HttpKernel\HttpKernelInterface;
  */
 class ErrorPageFactory extends AbstractFactory
 {
-    /**
-     * @return \Spryker\Yves\Router\Router\ChainRouter
-     */
     public function getRouter(): ChainRouter
     {
         return $this->getProvidedDependency(ErrorPageDependencyProvider::SERVICE_ROUTER);
     }
 
-    /**
-     * @return \Symfony\Component\HttpFoundation\RequestStack
-     */
     public function getRequestStack(): RequestStack
     {
         return $this->getProvidedDependency(ErrorPageDependencyProvider::SERVICE_REQUEST_STACK);
     }
 
-    /**
-     * @return \Symfony\Component\HttpKernel\HttpKernelInterface
-     */
     public function getKernel(): HttpKernelInterface
     {
         return $this->getProvidedDependency(ErrorPageDependencyProvider::SERVICE_KERNEL);
@@ -61,9 +52,6 @@ class ErrorPageFactory extends AbstractFactory
         return $this->getProvidedDependency(ErrorPageDependencyProvider::PLUGIN_EXCEPTION_HANDLERS);
     }
 
-    /**
-     * @return \SprykerShop\Yves\ErrorPage\Handler\RedirectExceptionHandlerInterface
-     */
     public function createRedirectExceptionHandler(): RedirectExceptionHandlerInterface
     {
         return new RedirectExceptionHandler($this->getRouter());

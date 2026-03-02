@@ -12,10 +12,5 @@ use Symfony\Component\HttpFoundation\Response;
 
 interface RedirectExceptionHandlerInterface
 {
-    /**
-     * @param \Symfony\Component\ErrorHandler\Exception\FlattenException $exception
-     *
-     * @return \Symfony\Component\HttpFoundation\Response
-     */
     public function handle(FlattenException $exception): Response;
 }

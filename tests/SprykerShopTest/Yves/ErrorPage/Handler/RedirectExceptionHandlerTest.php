@@ -15,9 +15,6 @@ use Symfony\Component\ErrorHandler\Exception\FlattenException;
 
 class RedirectExceptionHandlerTest extends Unit
 {
-    /**
-     * @return void
-     */
     public function testHandleExceptionReturnsTemporaryRedirectStatusCode(): void
     {
         // Arrange

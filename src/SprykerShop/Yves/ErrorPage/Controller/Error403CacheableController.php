@@ -22,11 +22,6 @@ class Error403CacheableController extends AbstractController
      */
     protected const QUERY_PARAMETER_ERROR_MESSAGE = 'errorMessage';
 
-    /**
-     * @param \Symfony\Component\HttpFoundation\Request $request
-     *
-     * @return \Spryker\Yves\Kernel\View\View
-     */
     public function indexAction(Request $request): View
     {
         return $this->view([
@@ -35,11 +30,6 @@ class Error403CacheableController extends AbstractController
         ], [], '@ErrorPage/views/error403/error403.twig');
     }
 
-    /**
-     * @param \Symfony\Component\HttpFoundation\Request $request
-     *
-     * @return string
-     */
     protected function getErrorMessage(Request $request): string
     {
         if (!$this->getFactory()->getConfig()->isErrorStackTraceEnabled()) {

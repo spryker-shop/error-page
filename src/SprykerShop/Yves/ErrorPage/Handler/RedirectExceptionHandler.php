@@ -30,19 +30,11 @@ class RedirectExceptionHandler implements RedirectExceptionHandlerInterface
      */
     protected $router;
 
-    /**
-     * @param \Spryker\Yves\Router\Router\ChainRouter $router
-     */
     public function __construct(ChainRouter $router)
     {
         $this->router = $router;
     }
 
-    /**
-     * @param \Symfony\Component\ErrorHandler\Exception\FlattenException $exception
-     *
-     * @return \Symfony\Component\HttpFoundation\Response
-     */
     public function handle(FlattenException $exception): Response
     {
         $errorPageUrl = $this->router->generate(

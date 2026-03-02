@@ -23,11 +23,6 @@ class Error429Controller extends AbstractController
      */
     protected const REQUEST_ATTRIBUTE_EXCEPTION = 'exception';
 
-    /**
-     * @param \Symfony\Component\HttpFoundation\Request $request
-     *
-     * @return \Spryker\Yves\Kernel\View\View
-     */
     public function indexAction(Request $request): View
     {
         return $this->view([
@@ -36,11 +31,6 @@ class Error429Controller extends AbstractController
         ], [], '@ErrorPage/views/error429/error429.twig');
     }
 
-    /**
-     * @param \Symfony\Component\HttpFoundation\Request $request
-     *
-     * @return string
-     */
     protected function getErrorMessage(Request $request): string
     {
         /** @var \Symfony\Component\ErrorHandler\Exception\FlattenException|null $exception */

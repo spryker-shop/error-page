@@ -19,11 +19,6 @@ class Error403Controller extends AbstractController
      */
     protected const REQUEST_ATTRIBUTE_EXCEPTION = 'exception';
 
-    /**
-     * @param \Symfony\Component\HttpFoundation\Request $request
-     *
-     * @return \Spryker\Yves\Kernel\View\View
-     */
     public function indexAction(Request $request): View
     {
         return $this->view([
