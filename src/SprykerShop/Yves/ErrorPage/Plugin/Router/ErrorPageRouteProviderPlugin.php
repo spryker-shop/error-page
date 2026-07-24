@@ -86,14 +86,10 @@ class ErrorPageRouteProviderPlugin extends AbstractRouteProviderPlugin
     public const ROUTE_NAME_ERROR_429 = 'error/429';
 
     /**
-     * Specification:
+     * {@inheritDoc}
      * - Adds Routes to the RouteCollection.
      *
      * @api
-     *
-     * @param \Spryker\Yves\Router\Route\RouteCollection $routeCollection
-     *
-     * @return \Spryker\Yves\Router\Route\RouteCollection
      */
     public function addRoutes(RouteCollection $routeCollection): RouteCollection
     {

@@ -67,6 +67,8 @@ class SubRequestExceptionHandlerPlugin extends AbstractPlugin implements Excepti
     protected const SERVICE_KERNEL = 'kernel';
 
     /**
+     * {@inheritDoc}
+     *
      * @param int $statusCode
      *
      * @return bool
@@ -77,7 +79,7 @@ class SubRequestExceptionHandlerPlugin extends AbstractPlugin implements Excepti
     }
 
     /**
-     * @param \Symfony\Component\ErrorHandler\Exception\FlattenException $exception
+     * {@inheritDoc}
      *
      * @return \Symfony\Component\HttpFoundation\Response
      */
