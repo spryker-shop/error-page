@@ -11,6 +11,9 @@ use Spryker\Yves\Kernel\AbstractBundleConfig;
 use SprykerShop\Shared\ErrorPage\ErrorPageConstants;
 use Symfony\Component\HttpFoundation\Response;
 
+/**
+ * @SuppressWarnings(PHPMD.BooleanGetMethodName)
+ */
 class ErrorPageConfig extends AbstractBundleConfig
 {
     /**
