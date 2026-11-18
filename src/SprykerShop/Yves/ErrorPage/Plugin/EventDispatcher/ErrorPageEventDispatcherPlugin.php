@@ -72,18 +72,24 @@ class ErrorPageEventDispatcherPlugin extends AbstractPlugin implements EventDisp
             break;
         }
         if (!$event->hasResponse()) {
-            if (
-                $statusCode === Response::HTTP_INTERNAL_SERVER_ERROR ||
-                $statusCode === Response::HTTP_NOT_FOUND ||
-                $statusCode === Response::HTTP_FORBIDDEN
-            ) {
-                return;
-            }
-            if ($statusCode >= 400 && isset(Response::$statusTexts[$statusCode])) {
-                $response = new Response($statusCode . ' ' . Response::$statusTexts[$statusCode], $statusCode);
-                $event->setResponse($response);
-                $event->stopPropagation();
-            }
+            $this->setDefaultErrorResponse($event, $statusCode);
+        }
+    }
+
+    protected function setDefaultErrorResponse(ExceptionEvent $event, int $statusCode): void
+    {
+        if (
+            $statusCode === Response::HTTP_INTERNAL_SERVER_ERROR ||
+            $statusCode === Response::HTTP_NOT_FOUND ||
+            $statusCode === Response::HTTP_FORBIDDEN
+        ) {
+            return;
+        }
+
+        if ($statusCode >= 400 && isset(Response::$statusTexts[$statusCode])) {
+            $response = new Response($statusCode . ' ' . Response::$statusTexts[$statusCode], $statusCode);
+            $event->setResponse($response);
+            $event->stopPropagation();
         }
     }
 }
